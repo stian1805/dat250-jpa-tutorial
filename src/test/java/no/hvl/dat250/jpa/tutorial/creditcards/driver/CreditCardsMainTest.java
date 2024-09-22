@@ -9,6 +9,7 @@ import jakarta.persistence.Persistence;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.util.HashSet;
 import java.util.Optional;
 import java.util.Set;
 
@@ -45,6 +46,7 @@ public class CreditCardsMainTest {
         assertEquals(address.getNumber(), 28);
         assertEquals(address.getOwners(), Set.of(customer));
 
+
         // Test credit cards
         assertEquals(customer.getCreditCards().size(), 2);
         CreditCard firstCard = getCardWithNumber(customer, 12345);
@@ -70,6 +72,7 @@ public class CreditCardsMainTest {
         assertEquals(bank.getId(),secondCard.getOwningBank().getId()); // Bank objects of the two cards are identical!
         assertEquals(bank.getName(), "Pengebank");
         assertEquals(bank.getOwnedCards(), Set.of(firstCard, secondCard));
+
     }
 
     private CreditCard getCardWithNumber(Customer customer, int cardNumber) {
